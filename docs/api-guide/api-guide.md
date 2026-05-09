@@ -12,8 +12,8 @@ https://rinkoai.com/v1
 
 ---
 
-# [通常够用的API调用的简要介绍](./quick-api-intro)
+# 通常够用的API调用的简要介绍
 
-这个通常够用的API调用的简要介绍其实也是从New API复制来的，如果你懒得跳转，可以直接点击查看
+这个通常够用的API调用的简要介绍其实也是从New API复制来的，如果你懒得跳转，可以直接[点击查看](./quick-api-intro.md)
 
 ‍

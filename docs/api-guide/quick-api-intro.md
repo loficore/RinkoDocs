@@ -1,19 +1,24 @@
 # 通常够用的API调用的简要介绍
 
+---
+
+
+
 # NAI接口文档
 
 ## 📋 接口概览
 
-**请求方式：**  `POST`​  
-**请求地址：**  `/v1/images/generations`​  
+**请求方式：**  `POST`
+**请求地址：**  `/v1/images/generations`
 **完整 URL：**  `https://rinkoai.com/v1/images/generations`
 
 ## 🔐 请求头 (Headers)
 
-|参数|类型|必填|说明|
-| ------| --------| ------| ------|
-|​`Content-Type`|string|✅|​`application/json`|
-|​`Authorization`|string|✅|​`Bearer YOUR_API_KEY`|
+
+| 参数            | 类型   | 必填 | 说明                  |
+| ----------------- | -------- | ------ | ----------------------- |
+| `Content-Type`  | string | ✅   | `application/json`    |
+| `Authorization` | string | ✅   | `Bearer YOUR_API_KEY` |
 
 ## 📝 请求参数 (Body)
 
@@ -29,65 +34,66 @@
 
 ### 完整参数列表
 
-|参数|类型|必填|默认值|说明|
-| ------| ---------| ------| --------| ----------------------------------------------------|
-|​`model`|string|✅|-|模型名称，参考 newapi 支持的模型列表|
-|​`prompt`|string|✅|-|图像描述提示词，仅支持英文字母、数字、英文符号|
-|​`size`|string|✅|-|图像尺寸，格式：`宽x高`|
-|​`style`|string|❌|​`default`|图像风格|
-|​`negative_prompt`|string|❌|-|负面提示词，仅支持英文字母、数字、英文符号|
-|​`auto_smea`|boolean|❌|​`false`|自动 SMEA 优化|
-|​`cfg_rescale`|number|❌|​`0`|CFG 重缩放参数(Prompt Guidance Rescale)，范围：0-1|
-|​`color_correct`|boolean|❌|​`false`|颜色校正|
-|​`controlnet_strength`|number|❌|​`1`|ControlNet 强度|
-|​`noise`|number|❌|​`0`|噪声级别|
-|​`noise_schedule`|string|❌|​`karras`|噪声调度算法|
-|​`qualityToggle`|boolean|❌|​`true`|质量增强开关|
-|​`sampler`|string|❌|​`k_euler_ancestra`|采样器类型|
-|​`scale`|number|❌|​`5.2`|引导缩放(Prompt Guidance)，范围：1-20|
-|​`strength`|number|❌|​`0.7`|生成强度|
-|​`ucPreset`|number|❌|​`0`|UC预设，范围：0-4|
+
+| 参数                  | 类型    | 必填 | 默认值             | 说明                                               |
+| ----------------------- | --------- | ------ | -------------------- | ---------------------------------------------------- |
+| `model`               | string  | ✅   | -                  | 模型名称，参考 newapi 支持的模型列表               |
+| `prompt`              | string  | ✅   | -                  | 图像描述提示词，仅支持英文字母、数字、英文符号     |
+| `size`                | string  | ✅   | -                  | 图像尺寸，格式：`宽x高`                            |
+| `style`               | string  | ❌   | `default`          | 图像风格                                           |
+| `negative_prompt`     | string  | ❌   | -                  | 负面提示词，仅支持英文字母、数字、英文符号         |
+| `auto_smea`           | boolean | ❌   | `false`            | 自动 SMEA 优化                                     |
+| `cfg_rescale`         | number  | ❌   | `0`                | CFG 重缩放参数(Prompt Guidance Rescale)，范围：0-1 |
+| `color_correct`       | boolean | ❌   | `false`            | 颜色校正                                           |
+| `controlnet_strength` | number  | ❌   | `1`                | ControlNet 强度                                    |
+| `noise`               | number  | ❌   | `0`                | 噪声级别                                           |
+| `noise_schedule`      | string  | ❌   | `karras`           | 噪声调度算法                                       |
+| `qualityToggle`       | boolean | ❌   | `true`             | 质量增强开关                                       |
+| `sampler`             | string  | ❌   | `k_euler_ancestra` | 采样器类型                                         |
+| `scale`               | number  | ❌   | `5.2`              | 引导缩放(Prompt Guidance)，范围：1-20              |
+| `strength`            | number  | ❌   | `0.7`              | 生成强度                                           |
+| `ucPreset`            | number  | ❌   | `0`                | UC预设，范围：0-4                                  |
 
 ### 参数详细说明
 
 #### `size` 可选值
 
-- ​`512x768` (20P)
-- ​`768x512` (20P)
-- ​`640x640` (20P)
-- ​`1024x1024` (20P)
-- ​`1024x1536` (20P)
-- ​`1536x1024` (20P)
-- ​`1024x1536` (50P)
-- ​`1536x1024` (50P)
-- ​`1472x1472` (62P)
-- ​`1088x1920` (60P)
-- ​`1920x1088` (60P)
+- `512x768` (20P)
+- `768x512` (20P)
+- `640x640` (20P)
+- `1024x1024` (20P)
+- `1024x1536` (20P)
+- `1536x1024` (20P)
+- `1024x1536` (50P)
+- `1536x1024` (50P)
+- `1472x1472` (62P)
+- `1088x1920` (60P)
+- `1920x1088` (60P)
 
 #### `style` 可选值
 
-- ​`default` - 默认
-- ​`recommend` - 推荐风格
+- `default` - 默认
+- `recommend` - 推荐风格
 
 如果你自己调出来了好看的风格,可以发给我们 我们会给你添加一个Style!
 
 #### `sampler` 可选值
 
-- ​`k_euler` - Euler 采样器
-- ​`k_euler_ancestral` - Euler Ancestral 采样器 (最推荐)
-- ​`k_euler_a` - Euler A 采样器
-- ​`k_dpmpp_2s_ancestral` - DPM++ 2S Ancestral 采样器
-- ​`k_dpmpp_2s_a` - DPM++ 2S A 采样器
-- ​`k_dpmpp_2m_sde` - DPM++ 2M SDE 采样器
-- ​`k_dpmpp_2m` - DPM++ 2M 采样器
-- ​`k_dpmpp_sde` - DPM++ SDE 采样器
+- `k_euler` - Euler 采样器
+- `k_euler_ancestral` - Euler Ancestral 采样器 (最推荐)
+- `k_euler_a` - Euler A 采样器
+- `k_dpmpp_2s_ancestral` - DPM++ 2S Ancestral 采样器
+- `k_dpmpp_2s_a` - DPM++ 2S A 采样器
+- `k_dpmpp_2m_sde` - DPM++ 2M SDE 采样器
+- `k_dpmpp_2m` - DPM++ 2M 采样器
+- `k_dpmpp_sde` - DPM++ SDE 采样器
 
 #### `noise_schedule` 可选值
 
-- ​`karras` - Karras 调度(最推荐)
-- ​`native` - Native 调度
-- ​`exponential` - exponential 调度
-- ​`polyexponential` - polyexponential 调度
+- `karras` - Karras 调度(最推荐)
+- `native` - Native 调度
+- `exponential` - exponential 调度
+- `polyexponential` - polyexponential 调度
 
 ## 🎨 v4模型Character参数使用说明
 
@@ -148,10 +154,10 @@
 
 ### Character参数说明
 
-- ​**可添加角色数量**：0-6个character
-- ​**PROMPT内容**​：与`prompt`字段值相同
-- ​**NEGATIVE_PROMPT内容**​：与`negative_prompt`字段值相同
-- ​**每个character**：都有各自的正面和负面提示词
+- **可添加角色数量**：0-6个character
+- **PROMPT内容**：与`prompt`字段值相同
+- **NEGATIVE_PROMPT内容**：与`negative_prompt`字段值相同
+- **每个character**：都有各自的正面和负面提示词
 
 ### 完整Character示例
 
@@ -375,20 +381,21 @@ print(result)
 
 > **重要提示**
 >
-> - ​`prompt`​ 和 `negative_prompt` 仅支持英文字母、数字和英文符号
+> - `prompt` 和 `negative_prompt` 仅支持英文字母、数字和英文符号
 > - 图像生成可能需要较长时间，请耐心等待
 > - 生成的图像可能包含随机性，相同参数可能产生不同结果
 > - 请遵守相关法律法规，不要生成违法违规内容
 
 ## 📊 状态码说明
 
-|状态码|说明|
-| --------| ----------------------|
-|​`200`|请求成功|
-|​`400`|请求参数错误|
-|​`401`|API Key 无效或未提供|
-|​`429`|请求频率超限|
-|​`500`|服务器内部错误|
+
+| 状态码 | 说明                 |
+| -------- | ---------------------- |
+| `200`  | 请求成功             |
+| `400`  | 请求参数错误         |
+| `401`  | API Key 无效或未提供 |
+| `429`  | 请求频率超限         |
+| `500`  | 服务器内部错误       |
 
 ---
 

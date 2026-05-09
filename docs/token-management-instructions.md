@@ -1,12 +1,12 @@
 # 令牌管理界面指南
 
 ## 1. 主界面概览
-![令牌管理界面](./assets/api_key_manager_ui.png "令牌管理界面")
+![令牌管理界面](./assets/api-key-manager-ui.png "令牌管理界面")
 
 主界面主要用于 API 令牌的**新增、删除及禁用**操作。关于令牌的详细配置与高级设置，请点击特定令牌进入“编辑”模式，详见下文。
 
 ## 2. 令牌设置详解
-![令牌管理设置界面](./assets/api_key_manager__settings_ui.png "令牌管理的设置界面")
+![令牌管理设置界面](./assets/api-key-manager-settings-ui.png "令牌管理的设置界面")
 
 在令牌编辑界面中，各项配置参数说明如下：
 

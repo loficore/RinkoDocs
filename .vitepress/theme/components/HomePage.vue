@@ -9,33 +9,12 @@ const slogans = [
 ]
 const currentSlogan = ref(slogans[0])
 const sloganIndex = ref(0)
-const showCardTip = ref(false)
-let cardTipTimer: ReturnType<typeof setTimeout> | null = null
-
-const hintUseQuickLinks = () => {
-  showCardTip.value = true
-
-  if (cardTipTimer) {
-    clearTimeout(cardTipTimer)
-  }
-
-  cardTipTimer = setTimeout(() => {
-    showCardTip.value = false
-    cardTipTimer = null
-  }, 1800)
-}
 
 onMounted(() => {
   setInterval(() => {
     sloganIndex.value = (sloganIndex.value + 1) % slogans.length
     currentSlogan.value = slogans[sloganIndex.value]
   }, 3000)
-})
-
-onBeforeUnmount(() => {
-  if (cardTipTimer) {
-    clearTimeout(cardTipTimer)
-  }
 })
 </script>
 
@@ -69,69 +48,20 @@ onBeforeUnmount(() => {
         </p>
         
         <div class="features-grid">
-          <div
-            class="feature-card"
-            role="button"
-            tabindex="0"
-            @click="hintUseQuickLinks"
-            @keydown.enter="hintUseQuickLinks"
-            @keydown.space.prevent="hintUseQuickLinks"
-          >
+          <a href="/RinkoDocs/api-guide/quick-api-intro" class="feature-card">
             <div class="feature-icon">🚀</div>
             <h3>快速开始</h3>
             <p>了解如何快速上手 RinkoAI，开始你的 AI 之旅</p>
-          </div>
-          <div
-            class="feature-card"
-            role="button"
-            tabindex="0"
-            @click="hintUseQuickLinks"
-            @keydown.enter="hintUseQuickLinks"
-            @keydown.space.prevent="hintUseQuickLinks"
-          >
+          </a>
+          <a href="/RinkoDocs/api-guide/api-guide" class="feature-card">
             <div class="feature-icon">🔌</div>
             <h3>API 调用</h3>
             <p>完整的 API 调用指南和示例，满足各种需求</p>
-          </div>
-          <div
-            class="feature-card"
-            role="button"
-            tabindex="0"
-            @click="hintUseQuickLinks"
-            @keydown.enter="hintUseQuickLinks"
-            @keydown.space.prevent="hintUseQuickLinks"
-          >
+          </a>
+          <a href="/RinkoDocs/group" class="feature-card">
             <div class="feature-icon">📂</div>
             <h3>分组机制</h3>
             <p>了解 RinkoAI 的分组机制，高效管理你的 AI 助手</p>
-          </div>
-        </div>
-
-        <p v-if="showCardTip" class="card-tip" aria-live="polite">
-          这些是功能介绍卡片，请下滑到「快速链接」区域进行跳转。
-        </p>
-      </div>
-    </section>
-
-    <section class="links-section">
-      <div class="container">
-        <h2 class="section-title">快速链接</h2>
-        <div class="links-grid">
-          <a href="/RinkoDocs/api-guide/quick-api-intro" class="link-card">
-            <span class="link-icon">🚀</span>
-            <span class="link-text">快速开始</span>
-          </a>
-          <a href="/RinkoDocs/api-guide/api-guide" class="link-card">
-            <span class="link-icon">🔌</span>
-            <span class="link-text">API 调用指南</span>
-          </a>
-          <a href="/RinkoDocs/group" class="link-card">
-            <span class="link-icon">📂</span>
-            <span class="link-text">分组机制</span>
-          </a>
-          <a href="/RinkoDocs/contact_us" class="link-card">
-            <span class="link-icon">📧</span>
-            <span class="link-text">联系我们</span>
           </a>
         </div>
       </div>
@@ -159,7 +89,9 @@ onBeforeUnmount(() => {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, #425AEF 0%, #7892f5 50%, #b4a1eb 100%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .hero-bg::before {
@@ -288,8 +220,7 @@ onBeforeUnmount(() => {
   }
 }
 
-.content-section,
-.links-section {
+.content-section {
   padding: 5rem 2rem;
   background: var(--vp-c-bg);
 }
@@ -328,6 +259,7 @@ onBeforeUnmount(() => {
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .feature-card:hover {
@@ -354,49 +286,6 @@ onBeforeUnmount(() => {
   color: var(--vp-c-text-2);
   margin: 0;
   line-height: 1.6;
-}
-
-.card-tip {
-  margin: 1.25rem auto 0;
-  max-width: 560px;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  text-align: center;
-  color: var(--vp-c-brand-1);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 35%, transparent);
-}
-
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-
-.link-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: var(--vp-c-bg-soft);
-  border-radius: 12px;
-  border: 1px solid var(--vp-c-divider);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.link-card:hover {
-  border-color: var(--vp-c-brand-1);
-  background: var(--vp-c-bg-elv);
-}
-
-.link-icon {
-  font-size: 1.5rem;
-}
-
-.link-text {
-  color: var(--vp-c-text-1);
-  font-weight: 500;
 }
 
 @media (max-width: 768px) {

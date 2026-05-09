@@ -24,11 +24,10 @@ export default defineConfig({
         text: '指南',
         items: [
 { text: '快速开始', link: '/api-guide/quick-api-intro' },
-          { text: '令牌管理', link: '/Token-Management-Instructions' },
+          { text: '令牌管理', link: '/token-management-instructions' },
           { text: '分组机制', link: '/group' },
           { text: '充值指南', link: '/recharge' },
-          { text: 'RinkoAI的性质', link: '/the-nature-of-Rinkoai' },
-          { text: '联系我们', link: '/contact_us' }
+          { text: '联系我们', link: '/contact-us' }
         ]
       },
       {
