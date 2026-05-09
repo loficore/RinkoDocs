@@ -50,8 +50,8 @@ onBeforeUnmount(() => {
           <span class="cursor">|</span>
         </p>
         <div class="hero-actions">
-          <a href="/quick_start" class="btn btn-primary">开始使用</a>
-          <a href="/api-guide/api-guide" class="btn btn-secondary">API 文档</a>
+          <a href="/RinkoDocs/api-guide/quick-api-intro" class="btn btn-primary">开始使用</a>
+          <a href="/RinkoDocs/api-guide/api-guide" class="btn btn-secondary">API 文档</a>
         </div>
       </div>
       <div class="scroll-hint">
@@ -117,19 +117,19 @@ onBeforeUnmount(() => {
       <div class="container">
         <h2 class="section-title">快速链接</h2>
         <div class="links-grid">
-          <a href="/quick_start" class="link-card">
+          <a href="/RinkoDocs/api-guide/quick-api-intro" class="link-card">
             <span class="link-icon">🚀</span>
             <span class="link-text">快速开始</span>
           </a>
-          <a href="/api-guide/api-guide" class="link-card">
+          <a href="/RinkoDocs/api-guide/api-guide" class="link-card">
             <span class="link-icon">🔌</span>
             <span class="link-text">API 调用指南</span>
           </a>
-          <a href="/group" class="link-card">
+          <a href="/RinkoDocs/group" class="link-card">
             <span class="link-icon">📂</span>
             <span class="link-text">分组机制</span>
           </a>
-          <a href="/contact_us" class="link-card">
+          <a href="/RinkoDocs/contact_us" class="link-card">
             <span class="link-icon">📧</span>
             <span class="link-text">联系我们</span>
           </a>
